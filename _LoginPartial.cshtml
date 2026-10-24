@@ -1,0 +1,48 @@
+﻿
+@if (User.Identity?.IsAuthenticated == true)
+{
+    <div class="d-flex align-items-center flex-wrap gap-3 py-2">
+
+        <div class="d-flex align-items-center gap-2">
+            <span class="user-avatar">
+                <i class="bi bi-person-circle"></i>
+            </span>
+
+            <div class="user-info">
+                <span class="user-info-label">Logged in as</span>
+                <span class="user-info-name">
+                    @(User.Identity.Name ?? "User")
+                </span>
+            </div>
+        </div>
+
+        <form asp-controller="Account"
+              asp-action="Logout"
+              method="post"
+              class="m-0">
+
+            <button type="submit"
+                    class="btn btn-outline-danger btn-sm logout-button">
+                <i class="bi bi-box-arrow-right me-1"></i>
+                Logout
+            </button>
+        </form>
+
+    </div>
+}
+else
+{
+    <div class="d-flex align-items-center gap-2 py-2">
+        <a asp-controller="Account"
+           asp-action="Login"
+           class="btn btn-outline-primary btn-sm">
+            Sign In
+        </a>
+
+        <a asp-controller="Account"
+           asp-action="Register"
+           class="btn btn-primary btn-sm">
+            Create Account
+        </a>
+    </div>
+}

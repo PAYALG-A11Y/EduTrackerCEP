@@ -1,0 +1,237 @@
+﻿
+@{
+    ViewData["Title"] = "Home";
+}
+
+<section class="landing-page">
+
+    <!-- Hero section -->
+    <div class="landing-hero">
+        <div class="hero-content">
+            <div class="hero-badge">
+                <i class="bi bi-stars"></i>
+                Smarter Campus Management
+            </div>
+
+            <h1>
+                Every Class.<br />
+                Every Event.<br />
+                <span>One Platform.</span>
+            </h1>
+
+            <p class="hero-description">
+                Welcome to EduTrack — a simple and smart way to manage
+                student attendance, classes, college events, and reports
+                all in one place.
+            </p>
+
+            <div class="hero-actions">
+                <a asp-area="Identity"
+                   asp-page="/Account/Login"
+                   class="btn hero-primary-btn">
+                    Get Started
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+
+                <a href="#features" class="btn hero-secondary-btn">
+                    Explore Features
+                </a>
+            </div>
+
+            <div class="hero-trust">
+                <i class="bi bi-check-circle-fill"></i>
+                Simple to use
+                <span class="trust-dot">•</span>
+                <i class="bi bi-phone"></i>
+                Mobile friendly
+            </div>
+        </div>
+
+        <!-- Decorative dashboard preview -->
+        <div class="hero-visual">
+            <div class="visual-glow"></div>
+
+            <div class="preview-window">
+                <div class="preview-header">
+                    <div class="preview-logo">
+                        <i class="bi bi-mortarboard-fill"></i>
+                    </div>
+
+                    <div>
+                        <strong>EduTrack</strong>
+                        <small>Management Dashboard</small>
+                    </div>
+
+                    <div class="preview-status">
+                        <span></span>
+                        Ready
+                    </div>
+                </div>
+
+                <div class="preview-welcome">
+                    <small>YOUR CAMPUS AT A GLANCE</small>
+                    <h3>Everything in one place.</h3>
+                </div>
+
+                <div class="preview-stats">
+                    <div class="preview-stat">
+                        <div class="stat-icon stat-purple">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <small>Students</small>
+                        <strong>Students</strong>
+                    </div>
+
+                    <div class="preview-stat">
+                        <div class="stat-icon stat-green">
+                            <i class="bi bi-calendar-check-fill"></i>
+                        </div>
+                        <small>Attendance</small>
+                        <strong>Records</strong>
+                    </div>
+                </div>
+
+                <div class="preview-report">
+                    <div class="report-icon">
+                        <i class="bi bi-file-earmark-spreadsheet-fill"></i>
+                    </div>
+
+                    <div class="report-copy">
+                        <strong>Attendance Reports</strong>
+                        <small>Organized Excel exports</small>
+                    </div>
+
+                    <i class="bi bi-check-circle-fill report-check"></i>
+                </div>
+
+                <div class="preview-event">
+                    <div class="event-icon">
+                        <i class="bi bi-calendar-event-fill"></i>
+                    </div>
+
+                    <div>
+                        <strong>College Events</strong>
+                        <small>Plan and manage participation</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="floating-icon floating-one">
+                <i class="bi bi-check2-circle"></i>
+            </div>
+
+            <div class="floating-icon floating-two">
+                <i class="bi bi-mortarboard-fill"></i>
+            </div>
+        </div>
+    </div>
+
+    <!-- Feature section -->
+    <div class="landing-features" id="features">
+        <div class="section-heading">
+            <span>WHAT YOU CAN DO</span>
+            <h2>Everything your campus needs</h2>
+            <p>
+                Spend less time managing records and more time focusing
+                on students and college activities.
+            </p>
+        </div>
+
+        <div class="feature-grid">
+
+            <article class="feature-card">
+                <div class="feature-icon feature-purple">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+
+                <h3>Class Management</h3>
+
+                <p>
+                    Organize classes, divisions, subjects, and student
+                    details in one convenient place.
+                </p>
+
+                <a asp-area="Identity"
+                   asp-page="/Account/Login"
+                   class="feature-link">
+                    Get started <i class="bi bi-arrow-right"></i>
+                </a>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon feature-green">
+                    <i class="bi bi-calendar2-check-fill"></i>
+                </div>
+
+                <h3>Attendance Tracking</h3>
+
+                <p>
+                    Record student attendance and review attendance
+                    information more easily.
+                </p>
+
+                <a asp-area="Identity"
+                   asp-page="/Account/Login"
+                   class="feature-link">
+                    Get started <i class="bi bi-arrow-right"></i>
+                </a>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon feature-orange">
+                    <i class="bi bi-calendar-event-fill"></i>
+                </div>
+
+                <h3>Event Management</h3>
+
+                <p>
+                    Keep college events organized and manage student
+                    participation from one place.
+                </p>
+
+                <a asp-area="Identity"
+                   asp-page="/Account/Login"
+                   class="feature-link">
+                    Get started <i class="bi bi-arrow-right"></i>
+                </a>
+            </article>
+
+            <article class="feature-card">
+                <div class="feature-icon feature-blue">
+                    <i class="bi bi-file-earmark-excel-fill"></i>
+                </div>
+
+                <h3>Excel Reports</h3>
+
+                <p>
+                    Download organized attendance reports to help with
+                    monthly record keeping.
+                </p>
+
+                <a asp-area="Identity"
+                   asp-page="/Account/Login"
+                   class="feature-link">
+                    Get started <i class="bi bi-arrow-right"></i>
+                </a>
+            </article>
+
+        </div>
+    </div>
+
+    <!-- Call to action -->
+    <div class="landing-cta">
+        <div>
+            <span>READY TO GET ORGANIZED?</span>
+            <h2>Your campus, made simpler.</h2>
+            <p>Sign in to access your EduTrack workspace.</p>
+        </div>
+
+        <a asp-area="Identity"
+           asp-page="/Account/Login"
+           class="btn cta-button">
+            Login to EduTrack
+            <i class="bi bi-arrow-right"></i>
+        </a>
+    </div>
+
+</section>

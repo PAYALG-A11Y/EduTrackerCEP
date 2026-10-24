@@ -1,0 +1,275 @@
+﻿@model EduTracker.Models.LoginViewModel
+
+@{
+    ViewData["Title"] = "Sign In";
+}
+
+<style>
+    .login-page {
+        min-height: 85vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px 15px;
+        background: linear-gradient(135deg, #eef2ff, #f5f3ff, #e0f2fe);
+        border-radius: 20px;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 460px;
+        background: #ffffff;
+        border: 1px solid rgba(255,255,255,.8);
+        border-radius: 24px;
+        box-shadow: 0 20px 60px rgba(45, 55, 120, .14);
+        overflow: hidden;
+    }
+
+    .login-header {
+        text-align: center;
+        padding: 36px 30px 20px;
+    }
+
+    .brand-icon {
+        width: 76px;
+        height: 76px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 22px;
+        color: white;
+        font-size: 38px;
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        box-shadow: 0 10px 25px rgba(79, 70, 229, .25);
+    }
+
+    .brand-name {
+        color: #4f46e5;
+        font-weight: 800;
+        letter-spacing: -.5px;
+    }
+
+    .login-subtitle {
+        color: #64748b;
+        font-size: 14px;
+    }
+
+    .login-body {
+        padding: 10px 36px 36px;
+    }
+
+    .login-label {
+        font-size: 14px;
+        font-weight: 600;
+        color: #334155;
+        margin-bottom: 8px;
+    }
+
+    .login-input {
+        min-height: 50px;
+        border: 1px solid #dbe2ef;
+        border-radius: 12px;
+        background-color: #f8fafc;
+    }
+
+    .login-input:focus {
+        background: white;
+        border-color: #6366f1;
+        box-shadow: 0 0 0 4px rgba(99, 102, 241, .12);
+    }
+
+    .password-wrap {
+        position: relative;
+    }
+
+    .password-wrap .login-input {
+        padding-right: 48px;
+    }
+
+    .toggle-password {
+        position: absolute;
+        top: 50%;
+        right: 14px;
+        transform: translateY(-50%);
+        border: 0;
+        background: transparent;
+        color: #64748b;
+        cursor: pointer;
+    }
+
+    .login-button {
+        min-height: 52px;
+        border: 0;
+        border-radius: 12px;
+        color: white;
+        font-weight: 700;
+        background: linear-gradient(135deg, #4f46e5, #7c3aed);
+        box-shadow: 0 8px 18px rgba(79, 70, 229, .22);
+        transition: transform .2s, box-shadow .2s;
+    }
+
+    .login-button:hover {
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 12px 24px rgba(79, 70, 229, .3);
+    }
+
+    .register-link {
+        color: #4f46e5;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .register-link:hover {
+        text-decoration: underline;
+    }
+
+    .login-footer {
+        text-align: center;
+        color: #94a3b8;
+        font-size: 12px;
+        padding: 0 20px 24px;
+    }
+
+    @@media (max-width: 576px) {
+        .login-page {
+            min-height: 75vh;
+            padding: 20px 5px;
+        }
+
+        .login-body {
+            padding: 10px 24px 28px;
+        }
+
+        .login-header {
+            padding-top: 28px;
+        }
+    }
+</style>
+
+<div class="login-page">
+    <div class="login-card">
+
+        <div class="login-header">
+            <div class="brand-icon">
+                <i class="bi bi-mortarboard-fill"></i>
+            </div>
+
+            <h2 class="brand-name mt-3 mb-1">EduTrack</h2>
+            <h4 class="fw-bold mt-3">Welcome Back!</h4>
+
+            <p class="login-subtitle mb-0">
+                Sign in to manage your learning journey
+            </p>
+        </div>
+
+        <div class="login-body">
+            <form asp-controller="Account"
+                  asp-action="Login"
+                  method="post">
+
+                <input asp-for="ReturnUrl" type="hidden" />
+
+                <div asp-validation-summary="ModelOnly"
+                     class="text-danger small mb-3"></div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="login-label">
+                        Email Address
+                    </label>
+
+                    <input asp-for="Email"
+                           class="form-control login-input"
+                           placeholder="you@example.com"
+                           autocomplete="username" />
+
+                    <span asp-validation-for="Email"
+                          class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="login-label">
+                        Password
+                    </label>
+
+                    <div class="password-wrap">
+                        <input asp-for="Password"
+                               id="loginPassword"
+                               type="password"
+                               class="form-control login-input"
+                               placeholder="Enter your password"
+                               autocomplete="current-password" />
+
+                        <button type="button"
+                                class="toggle-password"
+                                id="togglePassword"
+                                aria-label="Show password"
+                                aria-pressed="false">
+                            <i class="bi bi-eye" id="passwordIcon"></i>
+                        </button>
+                    </div>
+
+                    <span asp-validation-for="Password"
+                          class="text-danger small"></span>
+                </div>
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <div class="form-check">
+                        <input asp-for="RememberMe"
+                               class="form-check-input" />
+
+                        <label asp-for="RememberMe"
+                               class="form-check-label small">
+                            Remember me
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit"
+                        class="btn login-button w-100">
+                    <i class="bi bi-box-arrow-in-right me-2"></i>
+                    Sign In
+                </button>
+            </form>
+
+            <div class="text-center mt-4">
+                <span class="text-muted small">
+                    Don't have an account?
+                </span>
+
+                <a asp-controller="Account"
+                   asp-action="Register"
+                   class="register-link ms-1">
+                    Create account
+                </a>
+            </div>
+        </div>
+
+        <div class="login-footer">
+            <i class="bi bi-shield-check me-1"></i>
+            Your learning journey, organized in one place.
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const password = document.getElementById("loginPassword");
+        const toggle = document.getElementById("togglePassword");
+        const icon = document.getElementById("passwordIcon");
+
+        toggle.addEventListener("click", function () {
+            const isHidden = password.type === "password";
+
+            password.type = isHidden ? "text" : "password";
+            icon.className = isHidden ? "bi bi-eye-slash" : "bi bi-eye";
+            toggle.setAttribute("aria-label",
+                isHidden ? "Hide password" : "Show password");
+            toggle.setAttribute("aria-pressed", String(isHidden));
+        });
+    });
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
